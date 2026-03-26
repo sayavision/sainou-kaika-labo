@@ -429,18 +429,28 @@ section { padding: 100px 24px; }
   text-align: center;
 }
 .common-items {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
   justify-content: center;
+  gap: 14px 16px;
 }
 .common-tag {
   background: rgba(238,244,249,0.92);
   color: var(--blue-deep);
   font-size: 13px;
-  padding: 9px 18px;
+  padding: 10px 18px;
   border-radius: 999px;
   border: 1px solid rgba(143,175,196,0.24);
+  text-align: center;
+  white-space: nowrap;
+}
+.common-tag-wide {
+  min-width: 320px;
+}
+.common-tag-center {
+  grid-column: 2 / 4;
+  justify-self: center;
+  min-width: 220px;
 }
 
 .courses-section {
@@ -787,6 +797,20 @@ footer {
 }
 
 @media (max-width: 820px) {
+  .common-items {
+    grid-template-columns: 1fr 1fr;
+  }
+  .common-tag,
+  .common-tag-wide,
+  .common-tag-center {
+    min-width: 0;
+    width: 100%;
+    white-space: normal;
+  }
+  .common-tag-center {
+    grid-column: auto;
+  }
+
   nav { padding: 16px 22px; }
   .about-story,
   .flow-steps { grid-template-columns: 1fr; }
@@ -799,6 +823,10 @@ footer {
 }
 
 @media (max-width: 680px) {
+  .common-items {
+    grid-template-columns: 1fr;
+  }
+
   .hero { padding-top: 112px; }
   .hero-title { letter-spacing: 0.05em; }
   .hero-bg-circle-1 { width: 420px; height: 420px; right: -120px; }
@@ -967,12 +995,12 @@ footer {
 
     <div class="common-base reveal">
       <p class="common-title">全コース共通の土台</p>
-      <div class="common-items">
-        <span class="common-tag">週1回 ストレングスファインダー講義</span>
+      <div class="common-items common-items-balanced">
+        <span class="common-tag common-tag-wide">週1回 ストレングスファインダー講義</span>
         <span class="common-tag">週1回 受講生同士の交流</span>
         <span class="common-tag">オープンチャット</span>
         <span class="common-tag">録画視聴</span>
-        <span class="common-tag">パーソナルセッション</span>
+        <span class="common-tag common-tag-center">パーソナルセッション</span>
       </div>
     </div>
   </div>
@@ -988,7 +1016,7 @@ footer {
       <div class="course-card reveal">
         <div class="course-header">
           <span class="course-name-en">LIGHT COURSE</span>
-          <p class="course-name">梅コース</p>
+          <p class="course-name">ライト継続コース</p>
           <span class="course-session">パーソナルセッション 3ヶ月で1回</span>
         </div>
         <div class="course-body">
@@ -1011,7 +1039,7 @@ footer {
         <div class="course-header">
           <span class="course-badge">おすすめ</span>
           <span class="course-name-en">STANDARD COURSE</span>
-          <p class="course-name">竹コース</p>
+          <p class="course-name">スタンダード継続コース</p>
           <span class="course-session">パーソナルセッション 月1回（全3回）</span>
         </div>
         <div class="course-body">
@@ -1033,7 +1061,7 @@ footer {
       <div class="course-card reveal">
         <div class="course-header">
           <span class="course-name-en">PREMIUM COURSE</span>
-          <p class="course-name">松コース</p>
+          <p class="course-name">集中伴走コース</p>
           <span class="course-session">パーソナルセッション 月2回（全6回）</span>
         </div>
         <div class="course-body">
@@ -1059,9 +1087,9 @@ footer {
           <tr><th>コース</th><th>一般価格</th><th>現受講生限定価格</th></tr>
         </thead>
         <tbody>
-          <tr><td>梅コース</td><td class="price-num">49,800円</td><td class="price-member">39,800円</td></tr>
-          <tr><td>竹コース</td><td class="price-num">88,000円</td><td class="price-member">74,800円</td></tr>
-          <tr><td>松コース</td><td class="price-num">128,000円</td><td class="price-member">108,000円</td></tr>
+          <tr><td>ライト継続コース</td><td class="price-num">¥49,800</td><td class="price-member">¥39,800</td></tr>
+          <tr><td>スタンダード継続コース</td><td class="price-num">¥88,000</td><td class="price-member">¥74,800</td></tr>
+          <tr><td>集中伴走コース</td><td class="price-num">¥128,000</td><td class="price-member">¥108,000</td></tr>
         </tbody>
       </table>
       <p class="price-member-note">※ 現在才能開花Laboを受講中の方は、限定価格でご参加いただけます</p>
