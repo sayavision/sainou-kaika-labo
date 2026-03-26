@@ -1,1369 +1,944 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>才能開花Labo｜継続3ヶ月プログラム</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <style>
-:root {
-  --blue-pale: #EEF4F9;
-  --blue-soft: #C8DDF0;
-  --blue-mid: #8AAFC8;
-  --blue-deep: #4A7A9B;
-  --pink-pale: #F9EEF2;
-  --pink-soft: #E8C8D4;
-  --pink-mid: #C89AAA;
-  --white: #FFFFFF;
-  --off-white: #FAFBFC;
-  --gray-light: #F2F4F6;
-  --gray-mid: #B0BBC4;
-  --gray-dark: #6A7A86;
-  --text-dark: #2A3540;
-  --text-mid: #4A5C6A;
-  --text-light: #7A8F9E;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Noto Sans JP', sans-serif;
-  background: var(--white);
-  color: var(--text-dark);
-  overflow-x: hidden;
-  font-weight: 300;
-}
-
-/* ── TYPOGRAPHY ── */
-.serif { font-family: 'Shippori Mincho', serif; }
-.italic { font-family: 'Cormorant Garamond', serif; font-style: italic; }
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes gentleFloat {
-  0%,100% { transform: translateY(0); }
-  50%     { transform: translateY(-8px); }
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 20px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(200,221,240,0.3);
-}
-
-.nav-logo {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text-dark);
-  letter-spacing: 0.1em;
-}
-
-.nav-cta {
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  color: var(--blue-deep);
-  border: 1px solid var(--blue-mid);
-  padding: 8px 22px;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-.nav-cta:hover {
-  background: var(--blue-deep);
-  color: white;
-  border-color: var(--blue-deep);
-}
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: linear-gradient(160deg, #FAFBFC 0%, #EEF4F9 40%, #F5EEF5 80%, #F9EEF2 100%);
-  padding: 120px 24px 80px;
-}
-
-.hero-bg-circle {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-.hero-bg-circle-1 {
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(200,221,240,0.3) 0%, transparent 70%);
-  top: -150px; right: -100px;
-  animation: gentleFloat 12s ease-in-out infinite;
-}
-.hero-bg-circle-2 {
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(232,200,212,0.25) 0%, transparent 70%);
-  bottom: 0; left: -80px;
-  animation: gentleFloat 15s ease-in-out infinite reverse;
-}
-.hero-bg-circle-3 {
-  width: 200px; height: 200px;
-  background: radial-gradient(circle, rgba(200,221,240,0.2) 0%, transparent 70%);
-  top: 40%; left: 10%;
-  animation: gentleFloat 10s ease-in-out infinite;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 720px;
-}
-
-.hero-eyebrow {
-  display: inline-block;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 15px;
-  letter-spacing: 0.25em;
-  color: var(--blue-mid);
-  margin-bottom: 28px;
-  animation: fadeUp 1s 0.2s both;
-}
-
-.hero-title {
-  font-family: 'Shippori Mincho', serif;
-  font-size: clamp(34px, 6vw, 60px);
-  font-weight: 600;
-  color: var(--text-dark);
-  line-height: 1.5;
-  letter-spacing: 0.06em;
-  margin-bottom: 20px;
-  animation: fadeUp 1s 0.4s both;
-}
-
-.hero-title em {
-  font-style: normal;
-  color: var(--blue-deep);
-}
-
-.hero-title-en {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: clamp(14px, 2vw, 18px);
-  font-weight: 300;
-  color: var(--gray-mid);
-  letter-spacing: 0.3em;
-  margin-bottom: 40px;
-  display: block;
-  animation: fadeUp 1s 0.5s both;
-}
-
-.hero-tagline {
-  font-size: clamp(14px, 2vw, 17px);
-  font-weight: 300;
-  color: var(--text-mid);
-  line-height: 2.2;
-  max-width: 500px;
-  margin: 0 auto 56px;
-  animation: fadeUp 1s 0.6s both;
-}
-
-.hero-cta-wrap {
-  animation: fadeUp 1s 0.8s both;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-}
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-mid) 100%);
-  color: white;
-  font-family: 'Shippori Mincho', serif;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  padding: 18px 52px;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: all 0.4s ease;
-  box-shadow: 0 8px 30px rgba(74,122,155,0.25);
-}
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(74,122,155,0.35);
-}
-
-.btn-note {
-  font-size: 12px;
-  color: var(--text-light);
-  letter-spacing: 0.05em;
-}
-
-.hero-scroll {
-  position: absolute;
-  bottom: 36px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  animation: fadeIn 1s 1.5s both;
-}
-.hero-scroll span {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  color: var(--gray-mid);
-}
-.scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--gray-mid), transparent);
-  animation: scrollDown 2s ease-in-out infinite;
-}
-@keyframes scrollDown {
-  0%   { transform: scaleY(0); transform-origin: top; }
-  50%  { transform: scaleY(1); transform-origin: top; }
-  51%  { transform: scaleY(1); transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
-}
-
-/* ── SECTION BASE ── */
-section {
-  padding: 100px 24px;
-}
-
-.section-inner {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.section-label {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 13px;
-  letter-spacing: 0.3em;
-  color: var(--blue-mid);
-  display: block;
-  margin-bottom: 16px;
-  text-align: center;
-}
-
-.section-title {
-  font-family: 'Shippori Mincho', serif;
-  font-size: clamp(26px, 4vw, 40px);
-  font-weight: 600;
-  color: var(--text-dark);
-  line-height: 1.6;
-  text-align: center;
-  letter-spacing: 0.06em;
-  margin-bottom: 16px;
-}
-
-.section-lead {
-  font-size: 15px;
-  font-weight: 300;
-  color: var(--text-mid);
-  line-height: 2.2;
-  text-align: center;
-  max-width: 580px;
-  margin: 0 auto 60px;
-}
-
-.divider {
-  width: 40px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--blue-mid), transparent);
-  margin: 24px auto;
-}
-
-/* ── MESSAGE SECTION ── */
-.message-section {
-  background: var(--off-white);
-}
-
-.message-card {
-  background: white;
-  border-radius: 24px;
-  padding: 60px 64px;
-  box-shadow: 0 2px 40px rgba(74,122,155,0.06);
-  position: relative;
-  overflow: hidden;
-}
-
-.message-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(to right, var(--blue-soft), var(--pink-soft));
-}
-
-.message-quote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 80px;
-  line-height: 1;
-  color: var(--blue-pale);
-  position: absolute;
-  top: 24px;
-  left: 40px;
-}
-
-.message-text {
-  font-family: 'Shippori Mincho', serif;
-  font-size: clamp(16px, 2.5vw, 20px);
-  font-weight: 400;
-  line-height: 2.2;
-  color: var(--text-dark);
-  position: relative;
-  z-index: 1;
-  margin-bottom: 32px;
-}
-
-.message-body {
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 2.4;
-  color: var(--text-mid);
-}
-
-/* ── FOR WHO ── */
-.forwho-section {
-  background: linear-gradient(180deg, var(--white) 0%, var(--blue-pale) 50%, var(--white) 100%);
-}
-
-.forwho-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-.forwho-item {
-  background: white;
-  border-radius: 16px;
-  padding: 32px 28px;
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  box-shadow: 0 2px 20px rgba(74,122,155,0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.forwho-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(74,122,155,0.12);
-}
-
-.forwho-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--blue-mid), var(--pink-mid));
-  flex-shrink: 0;
-  margin-top: 7px;
-}
-
-.forwho-text {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.9;
-  color: var(--text-mid);
-}
-
-/* ── GOALS ── */
-.goals-section {
-  background: white;
-}
-
-.goals-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.goal-item {
-  text-align: center;
-  padding: 40px 28px;
-  border-radius: 20px;
-  background: linear-gradient(160deg, var(--blue-pale) 0%, var(--pink-pale) 100%);
-  transition: transform 0.3s ease;
-}
-.goal-item:hover { transform: translateY(-4px); }
-
-.goal-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 36px;
-  color: var(--blue-mid);
-  display: block;
-  margin-bottom: 16px;
-  opacity: 0.6;
-}
-
-.goal-text {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.8;
-  color: var(--text-dark);
-}
-
-/* ── PROGRAM FLOW ── */
-.flow-section {
-  background: var(--gray-light);
-}
-
-.flow-steps {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 60px;
-  max-width: 620px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.flow-step {
-  text-align: center;
-  padding: 36px 28px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 2px 20px rgba(74,122,155,0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.flow-step:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(74,122,155,0.12);
-}
-
-.flow-arrow {
-  display: none;
-}
-
-.flow-icon {
-  font-size: 28px;
-  margin-bottom: 10px;
-  display: block;
-}
-
-.flow-label {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-dark);
-  display: block;
-  margin-bottom: 6px;
-}
-
-.flow-sub {
-  font-size: 11px;
-  font-weight: 300;
-  color: var(--text-light);
-  line-height: 1.6;
-}
-
-/* ── COMMON BASE ── */
-.common-base {
-  background: white;
-  border-radius: 24px;
-  padding: 48px 56px;
-  box-shadow: 0 2px 30px rgba(74,122,155,0.07);
-  margin-top: 0;
-}
-
-.common-title {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 28px;
-  text-align: center;
-}
-
-.common-items {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-}
-
-.common-tag {
-  background: var(--blue-pale);
-  color: var(--blue-deep);
-  font-size: 13px;
-  font-weight: 400;
-  padding: 8px 20px;
-  border-radius: 50px;
-  border: 1px solid var(--blue-soft);
-}
-
-/* ── COURSES ── */
-.courses-section {
-  background: linear-gradient(180deg, var(--white) 0%, var(--blue-pale) 30%, var(--pink-pale) 70%, var(--white) 100%);
-}
-
-.courses-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-bottom: 48px;
-}
-
-.course-card {
-  background: white;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 4px 30px rgba(74,122,155,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-.course-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 50px rgba(74,122,155,0.15);
-}
-
-.course-card.featured {
-  box-shadow: 0 4px 40px rgba(74,122,155,0.18);
-  transform: scale(1.02);
-}
-.course-card.featured:hover {
-  transform: scale(1.02) translateY(-6px);
-}
-
-.course-header {
-  padding: 32px 32px 24px;
-  text-align: center;
-  position: relative;
-}
-
-.course-card:nth-child(1) .course-header { background: linear-gradient(160deg, #EEF4F9, #F5EEF5); }
-.course-card:nth-child(2) .course-header { background: linear-gradient(160deg, #E8F0F8, #EEF4F9); }
-.course-card:nth-child(3) .course-header { background: linear-gradient(160deg, #C8DDF0, #D8EAF5); }
-
-.course-badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  padding: 4px 12px;
-  border-radius: 50px;
-  background: rgba(74,122,155,0.1);
-  color: var(--blue-deep);
-}
-
-.course-name-en {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 13px;
-  letter-spacing: 0.2em;
-  color: var(--gray-mid);
-  display: block;
-  margin-bottom: 8px;
-}
-
-.course-name {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 16px;
-}
-
-.course-session {
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--blue-deep);
-  background: rgba(200,221,240,0.3);
-  display: inline-block;
-  padding: 4px 14px;
-  border-radius: 50px;
-}
-
-.course-body {
-  padding: 28px 32px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.course-for-title {
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.15em;
-  color: var(--text-light);
-  margin-bottom: 12px;
-}
-
-.course-for-list {
-  list-style: none;
-  margin-bottom: 28px;
-  flex: 1;
-}
-.course-for-list li {
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--text-mid);
-  line-height: 1.8;
-  padding: 4px 0;
-  border-bottom: 1px solid var(--gray-light);
-  padding-left: 16px;
-  position: relative;
-}
-.course-for-list li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--blue-mid);
-  font-size: 10px;
-}
-
-.course-price-wrap {
-  margin-top: auto;
-  padding-top: 20px;
-  border-top: 1px solid var(--gray-light);
-}
-
-.course-price-label {
-  font-size: 11px;
-  font-weight: 300;
-  color: var(--text-light);
-  letter-spacing: 0.1em;
-  margin-bottom: 4px;
-}
-
-.course-price {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 32px;
-  font-weight: 400;
-  color: var(--text-dark);
-}
-.course-price span {
-  font-size: 14px;
-  font-weight: 300;
-  color: var(--text-light);
-  margin-left: 4px;
-}
-
-.course-price-member {
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--pink-mid);
-  margin-top: 4px;
-}
-
-/* ── PRICE TABLE ── */
-.price-note {
-  background: white;
-  border-radius: 20px;
-  padding: 40px 48px;
-  box-shadow: 0 2px 24px rgba(74,122,155,0.07);
-}
-
-.price-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-
-.price-table th {
-  font-family: 'Shippori Mincho', serif;
-  font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  color: var(--text-light);
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--gray-light);
-  text-align: left;
-}
-
-.price-table td {
-  padding: 16px;
-  border-bottom: 1px solid var(--gray-light);
-  font-weight: 300;
-  color: var(--text-mid);
-}
-
-.price-table td:first-child {
-  font-family: 'Shippori Mincho', serif;
-  font-weight: 500;
-  color: var(--text-dark);
-}
-
-.price-table td.price-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  color: var(--blue-deep);
-}
-
-.price-table td.price-member {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  color: var(--pink-mid);
-}
-
-.price-member-note {
-  font-size: 12px;
-  font-weight: 300;
-  color: var(--pink-mid);
-  margin-top: 16px;
-  text-align: center;
-  letter-spacing: 0.05em;
-}
-
-/* ── CTA SECTION ── */
-.cta-section {
-  background: linear-gradient(160deg, #EEF4F9 0%, #F5EEF5 50%, #F9EEF2 100%);
-  text-align: center;
-  padding: 120px 24px;
-}
-
-.cta-title {
-  font-family: 'Shippori Mincho', serif;
-  font-size: clamp(26px, 4vw, 44px);
-  font-weight: 600;
-  color: var(--text-dark);
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
-
-.cta-sub {
-  font-size: 15px;
-  font-weight: 300;
-  color: var(--text-mid);
-  line-height: 2.2;
-  max-width: 500px;
-  margin: 0 auto 52px;
-}
-
-.btn-line {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background: #06C755;
-  color: white;
-  font-family: 'Shippori Mincho', serif;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  padding: 20px 56px;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 30px rgba(6,199,85,0.25);
-  margin-bottom: 16px;
-}
-.btn-line:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(6,199,85,0.35);
-  background: #05b34b;
-}
-
-.cta-footnote {
-  font-size: 12px;
-  font-weight: 300;
-  color: var(--text-light);
-  letter-spacing: 0.05em;
-}
-
-/* ── FOOTER ── */
-footer {
-  background: var(--text-dark);
-  color: rgba(255,255,255,0.5);
-  text-align: center;
-  padding: 48px 24px;
-}
-
-.footer-logo {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.8);
-  margin-bottom: 16px;
-}
-
-.footer-copy {
-  font-size: 12px;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-}
-
-/* ── ABOUT SECTION ── */
-.about-section {
-  background: white;
-}
-
-.about-catch {
-  font-family: 'Shippori Mincho', serif;
-  font-size: clamp(20px, 3.5vw, 32px);
-  font-weight: 600;
-  color: var(--text-dark);
-  text-align: center;
-  line-height: 1.8;
-  letter-spacing: 0.06em;
-  margin-bottom: 60px;
-}
-
-.about-pain {
-  background: linear-gradient(160deg, var(--blue-pale) 0%, var(--pink-pale) 100%);
-  border-radius: 24px;
-  padding: 52px 60px;
-  margin-bottom: 48px;
-  position: relative;
-  overflow: hidden;
-}
-.about-pain::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(to right, var(--blue-soft), var(--pink-soft));
-}
-
-.about-pain-lead {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 17px;
-  font-weight: 500;
-  color: var(--text-dark);
-  text-align: center;
-  margin-bottom: 28px;
-  line-height: 1.9;
-}
-
-.about-pain-voices {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  justify-content: center;
-  margin-bottom: 32px;
-}
-
-.voice-bubble {
-  background: white;
-  border: 1px solid var(--blue-soft);
-  color: var(--text-mid);
-  font-size: 14px;
-  font-weight: 300;
-  padding: 10px 22px;
-  border-radius: 50px;
-  box-shadow: 0 2px 12px rgba(74,122,155,0.07);
-}
-
-.about-pain-answer {
-  font-size: 15px;
-  font-weight: 300;
-  color: var(--text-mid);
-  line-height: 2.3;
-  text-align: center;
-}
-.about-pain-answer strong {
-  font-weight: 500;
-  color: var(--blue-deep);
-}
-
-.about-story {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 48px;
-}
-
-.about-story-card {
-  background: var(--off-white);
-  border-radius: 20px;
-  padding: 36px 32px;
-  border: 1px solid rgba(200,221,240,0.4);
-}
-
-.about-story-card-title {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 14px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--blue-soft);
-}
-
-.about-story-card-body {
-  font-size: 14px;
-  font-weight: 300;
-  color: var(--text-mid);
-  line-height: 2.2;
-}
-
-.about-conclusion {
-  background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-mid) 100%);
-  border-radius: 24px;
-  padding: 52px 60px;
-  text-align: center;
-  color: white;
-}
-
-.about-conclusion-title {
-  font-family: 'Shippori Mincho', serif;
-  font-size: clamp(18px, 3vw, 26px);
-  font-weight: 600;
-  line-height: 1.8;
-  margin-bottom: 20px;
-  letter-spacing: 0.04em;
-}
-
-.about-conclusion-body {
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 2.2;
-  opacity: 0.85;
-  max-width: 560px;
-  margin: 0 auto;
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  nav { padding: 16px 24px; }
-
-  .about-story { grid-template-columns: 1fr; }
-  .about-pain { padding: 36px 24px; }
-  .about-conclusion { padding: 40px 24px; }
-  .message-card { padding: 40px 28px; }
-  .common-base { padding: 36px 28px; }
-  .price-note { padding: 28px 20px; }
-
-  .flow-steps { grid-template-columns: 1fr; max-width: 100%; }
-
-  .courses-grid { grid-template-columns: 1fr; }
-  .course-card.featured { transform: none; }
-
-  .btn-line, .btn-primary { padding: 16px 36px; font-size: 15px; }
-}
+  :root {
+    --bg: #fbfcfe;
+    --surface: #ffffff;
+    --surface-soft: #f4f8fb;
+    --line: #dbe6ee;
+    --line-strong: #bfd0de;
+    --text: #27343f;
+    --text-soft: #5f7282;
+    --text-faint: #8ea0ae;
+    --accent: #5d7f9a;
+    --accent-deep: #3f617b;
+    --accent-soft: #e8f0f6;
+    --pink-soft: #f5edf1;
+    --shadow: 0 16px 40px rgba(54, 84, 108, 0.08);
+    --radius: 24px;
+    --radius-sm: 16px;
+    --max: 1120px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Noto Serif JP', serif;
+    background: linear-gradient(180deg, #fcfdff 0%, #f8fbfd 100%);
+    color: var(--text);
+    line-height: 1.95;
+    letter-spacing: 0.02em;
+  }
+
+  a { color: inherit; }
+
+  .container {
+    width: min(var(--max), calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .section {
+    padding: 110px 0;
+  }
+
+  .section-tight {
+    padding: 88px 0;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    margin-bottom: 18px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--text-faint);
+  }
+
+  .section-head {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .section-title {
+    margin: 0;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 500;
+    line-height: 1.65;
+    letter-spacing: 0.06em;
+  }
+
+  .section-sub {
+    max-width: 740px;
+    margin: 18px auto 0;
+    font-size: 15px;
+    color: var(--text-soft);
+    line-height: 2.1;
+  }
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(14px);
+    background: rgba(251, 252, 254, 0.82);
+    border-bottom: 1px solid rgba(219, 230, 238, 0.8);
+  }
+
+  .nav-inner {
+    width: min(var(--max), calc(100% - 40px));
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+  }
+
+  .brand {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--text-soft);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 0 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.25s ease;
+    letter-spacing: 0.06em;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--accent-deep);
+    color: #fff;
+    box-shadow: 0 10px 24px rgba(63, 97, 123, 0.18);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    background: #36556c;
+  }
+
+  .btn-secondary {
+    background: rgba(255,255,255,0.65);
+    border-color: var(--line-strong);
+    color: var(--accent-deep);
+  }
+
+  .btn-secondary:hover {
+    background: #fff;
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 90px 0 110px;
+  }
+
+  .hero::before,
+  .hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(4px);
+    pointer-events: none;
+  }
+
+  .hero::before {
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(232,240,246,0.95) 0%, rgba(232,240,246,0) 72%);
+    top: -170px;
+    right: -120px;
+  }
+
+  .hero::after {
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(245,237,241,0.82) 0%, rgba(245,237,241,0) 72%);
+    left: -120px;
+    bottom: -140px;
+  }
+
+  .hero-card {
+    position: relative;
+    background: rgba(255,255,255,0.66);
+    border: 1px solid rgba(219, 230, 238, 0.88);
+    box-shadow: var(--shadow);
+    border-radius: 34px;
+    padding: 72px 60px;
+    text-align: center;
+  }
+
+  .hero-kicker {
+    font-size: 13px;
+    color: var(--text-faint);
+    letter-spacing: 0.18em;
+    margin-bottom: 22px;
+  }
+
+  .hero-title {
+    margin: 0;
+    font-size: clamp(34px, 6vw, 66px);
+    font-weight: 500;
+    line-height: 1.55;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-title .accent {
+    color: var(--accent-deep);
+  }
+
+  .hero-copy {
+    max-width: 740px;
+    margin: 28px auto 0;
+    font-size: 16px;
+    color: var(--text-soft);
+    line-height: 2.2;
+  }
+
+  .hero-cta {
+    margin-top: 38px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .hero-note {
+    margin-top: 14px;
+    color: var(--text-faint);
+    font-size: 12px;
+  }
+
+  .glass {
+    background: rgba(255,255,255,0.78);
+    border: 1px solid rgba(219, 230, 238, 0.95);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+  }
+
+  .intro-box {
+    padding: 42px 34px;
+  }
+
+  .intro-lead {
+    font-size: clamp(22px, 3vw, 34px);
+    text-align: center;
+    margin: 0 0 30px;
+    line-height: 1.85;
+    font-weight: 500;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .chip {
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid var(--line);
+    color: var(--text-soft);
+    font-size: 14px;
+  }
+
+  .body-copy {
+    font-size: 15px;
+    color: var(--text-soft);
+    line-height: 2.2;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 34px 30px;
+    box-shadow: 0 10px 24px rgba(54,84,108,0.05);
+  }
+
+  .card h3 {
+    margin: 0 0 14px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .point-card {
+    background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 30px 24px;
+    min-height: 200px;
+  }
+
+  .point-no {
+    font-size: 13px;
+    color: var(--text-faint);
+    letter-spacing: 0.16em;
+    margin-bottom: 18px;
+  }
+
+  .point-text {
+    font-size: 19px;
+    line-height: 1.9;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .list-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .list-item {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px 22px;
+    color: var(--text-soft);
+    font-size: 15px;
+    line-height: 2;
+  }
+
+  .flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .flow-item {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 30px 22px;
+    text-align: center;
+  }
+
+  .flow-step {
+    font-size: 13px;
+    color: var(--text-faint);
+    letter-spacing: 0.14em;
+    margin-bottom: 12px;
+  }
+
+  .flow-title {
+    font-size: 20px;
+    margin: 0 0 10px;
+    font-weight: 500;
+  }
+
+  .flow-copy {
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.95;
+    margin: 0;
+  }
+
+  .common-box {
+    margin-top: 28px;
+    padding: 34px 28px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    text-align: center;
+  }
+
+  .common-box h3 {
+    margin: 0 0 18px;
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  .course-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    align-items: stretch;
+  }
+
+  .course {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    padding: 34px 28px 30px;
+    box-shadow: 0 12px 28px rgba(54,84,108,0.05);
+  }
+
+  .course.featured {
+    border-color: var(--line-strong);
+    box-shadow: 0 18px 38px rgba(54,84,108,0.08);
+  }
+
+  .badge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+
+  .course-label {
+    color: var(--text-faint);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    margin-bottom: 10px;
+  }
+
+  .course-name {
+    margin: 0 0 10px;
+    font-size: 28px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .course-session {
+    margin: 0 0 20px;
+    color: var(--accent-deep);
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .course ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .course li {
+    padding: 11px 0;
+    border-bottom: 1px solid #eef3f7;
+    color: var(--text-soft);
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .price-wrap {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+
+  .price-caption {
+    font-size: 12px;
+    color: var(--text-faint);
+    margin-bottom: 4px;
+  }
+
+  .price {
+    font-size: 34px;
+    line-height: 1.35;
+    font-weight: 500;
+    color: var(--accent-deep);
+  }
+
+  .member-price {
+    margin-top: 6px;
+    color: #aa7d8f;
+    font-size: 14px;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin-top: 36px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+
+  th, td {
+    padding: 18px 16px;
+    text-align: left;
+    border-bottom: 1px solid #eef3f7;
+    font-size: 15px;
+  }
+
+  th {
+    color: var(--text-faint);
+    font-weight: 500;
+    background: #fbfdff;
+  }
+
+  td { color: var(--text-soft); }
+  td strong { color: var(--text); font-weight: 500; }
+
+  .cta {
+    padding: 100px 0 120px;
+  }
+
+  .cta-box {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(244,248,251,0.98) 100%);
+    border: 1px solid var(--line);
+    border-radius: 34px;
+    box-shadow: var(--shadow);
+  }
+
+  .cta-title {
+    margin: 0;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.7;
+    font-weight: 500;
+  }
+
+  .cta-copy {
+    max-width: 720px;
+    margin: 22px auto 0;
+    color: var(--text-soft);
+    font-size: 15px;
+    line-height: 2.15;
+  }
+
+  .cta-buttons {
+    margin-top: 34px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .footer {
+    border-top: 1px solid var(--line);
+    padding: 30px 0 46px;
+    text-align: center;
+    color: var(--text-faint);
+    font-size: 12px;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: 0.7s ease;
+  }
+
+  .reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 980px) {
+    .two-col,
+    .grid-3,
+    .grid-2,
+    .flow,
+    .course-grid,
+    .list-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-card {
+      padding: 56px 28px;
+    }
+
+    .section {
+      padding: 84px 0;
+    }
+
+    .nav-inner {
+      width: calc(100% - 28px);
+    }
+
+    .container {
+      width: calc(100% - 28px);
+    }
+  }
+
+  @media (max-width: 680px) {
+    .nav-links .nav-link {
+      display: none;
+    }
+
+    .brand {
+      font-size: 18px;
+    }
+
+    .hero {
+      padding-top: 56px;
+      padding-bottom: 76px;
+    }
+
+    .hero-title {
+      letter-spacing: 0.04em;
+    }
+
+    .intro-lead,
+    .section-title,
+    .cta-title {
+      letter-spacing: 0.03em;
+    }
+
+    .cta-box {
+      padding: 48px 22px;
+    }
+  }
 </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">才能開花Labo</div>
-  <a href="https://line.me/R/ti/p/@062zkzea?ts=12221245&oat_content=url" class="nav-cta">お申し込みはこちら</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg-circle hero-bg-circle-1"></div>
-  <div class="hero-bg-circle hero-bg-circle-2"></div>
-  <div class="hero-bg-circle hero-bg-circle-3"></div>
-
-  <div class="hero-inner">
-    <span class="hero-eyebrow">Sainou Kaika Labo</span>
-    <h1 class="hero-title">
-      「普通」の自分は<br>もう終わり。
-    </h1>
-    <span class="hero-title-en">Bloom Your Talent. Shine as You Are.</span>
-    <p class="hero-tagline">
-      才能を開花させて、<em>自分史上最高に輝こう。</em><br>
-      ——3か月で、あなたらしい輝きへ。
-    </p>
-    <div class="hero-cta-wrap">
-      <a href="#cta" class="btn-primary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LINEで詳細を受け取る
-      </a>
-      <span class="btn-note">まずは無料でご相談いただけます</span>
-    </div>
-  </div>
-
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span>scroll</span>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about-section">
-  <div class="section-inner">
-    <span class="section-label reveal">What is Sainou Kaika Labo</span>
-    <h2 class="section-title reveal">才能開花Laboとは</h2>
-    <div class="divider reveal"></div>
-
-    <p class="about-catch reveal">
-      「普通」で終わる自分をやめて、<br>
-      自分の才能を最大限に活かして<br>
-      <em style="font-style:normal; color:var(--blue-deep);">輝きはじめるための3か月</em>。
-    </p>
-
-    <div class="about-pain reveal">
-      <p class="about-pain-lead">こんなふうに感じたことはありませんか？</p>
-      <div class="about-pain-voices">
-        <span class="voice-bubble">「私には才能がない」</span>
-        <span class="voice-bubble">「自分なんてこの程度」</span>
-        <span class="voice-bubble">「あの人と比べて自分は普通だ」</span>
-      </div>
-      <p class="about-pain-answer">
-        でも本当は、才能は一部の特別な人だけのものではありません。<br>
-        <strong>誰の中にも、まだ眠っている才能があります。</strong>
-      </p>
-      <p class="about-pain-answer" style="margin-top:20px;">
-        もし今「自分はまだこんなもんじゃない」という感覚があるなら、<br>
-        それは未来のあなたから届いているサインです。
-      </p>
-    </div>
-
-    <div class="about-story reveal">
-      <div class="about-story-card">
-        <p class="about-story-card-title">才能が花開く瞬間</p>
-        <p class="about-story-card-body">
-          才能は、心から望むゴールを持ち、その未来に向かって歩みはじめたときに、少しずつ花開いていきます。<br><br>
-          そしてその先には、これまでの自分では想像できなかったような出会いや流れ、時には通常ではありえないようなミラクルが起こりはじめます。
-        </p>
-      </div>
-      <div class="about-story-card">
-        <p class="about-story-card-title">「学んで終わり」ではなく…</p>
-        <p class="about-story-card-body">
-          才能開花Laboでは、自分と向き合い、才能を開花させる方法を学び、実験を繰り返すことで、自分史上最高の輝きを目指していきます。<br><br>
-          「学んで終わり」ではなく、実践を積み重ねながら、あなたらしく輝く人生へ進んでいくための3か月です。
-        </p>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">才能開花Labo</div>
+      <div class="nav-links">
+        <a class="nav-link" href="#about">Laboとは</a>
+        <a class="nav-link" href="#courses">コース</a>
+        <a class="nav-link" href="#apply">お申し込み</a>
+        <a class="btn btn-secondary" href="https://example.com/form" target="_blank" rel="noopener noreferrer">お申し込みはこちら</a>
       </div>
     </div>
+  </header>
 
-    <div class="about-conclusion reveal">
-      <p class="about-conclusion-title">
-        自分と向き合い、才能を開花させ、<br>
-        自分史上最高に輝くための3か月へ。
-      </p>
-      <p class="about-conclusion-body">
-        学んで終わりではなく、実践を積み重ねながら——<br>
-        あなたらしく輝く人生に向かって、一歩ずつ進んでいきましょう。
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- MESSAGE -->
-<section class="message-section">
-  <div class="section-inner">
-    <span class="section-label reveal">Message</span>
-    <h2 class="section-title reveal">このプログラムに<br>込めた想い</h2>
-    <div class="divider reveal"></div>
-
-    <div class="message-card reveal">
-      <div class="message-quote">"</div>
-      <p class="message-text">
-        「自分のことを知る」だけでも人生は変わる。<br>でも、本当の変化はその先にある。
-      </p>
-      <p class="message-body">
-        「自分のことを知る」だけでも人生は変わるけれど、本当に変化が起きるのは、心の底から叶えたいゴールを設定し、意識的に日常で変化をし続けることです。<br><br>
-        最初はモチベーション高く設定したゴールも、時間が経つと「本当に叶えられるのかな」「私には才能がないのかも？」「モチベーションが上がらない」——そんな気持ちになってしまうことがあります。<br><br>
-        一人だと、どうしても元の自分のパターンに戻ってしまいます。そのようなパターンを変えていくには、<em>自分の才能を活かす理論の理解・定期的に自分を見つめる時間の確保、仲間やコーチとの対話、才能を活かす実践</em>——この4つが必要だと感じました。<br><br>
-        「自分は普通だ」と思っていた人が、自分の中にある才能の種に気づき、それを少しずつ育てながら、<em>"本当の自分"で生きる感覚を取り戻していく</em>——そんな3ヶ月にしたいと思っています。
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- FOR WHO -->
-<section class="forwho-section">
-  <div class="section-inner">
-    <span class="section-label reveal">For Who</span>
-    <h2 class="section-title reveal">こんな方へ</h2>
-    <div class="divider reveal"></div>
-
-    <div class="forwho-grid">
-      <div class="forwho-item reveal">
-        <div class="forwho-dot"></div>
-        <p class="forwho-text">自分の強みや才能をもっと深く理解したい</p>
-      </div>
-      <div class="forwho-item reveal">
-        <div class="forwho-dot"></div>
-        <p class="forwho-text">ストレングスファインダーを受けたけれど、活かし方がわからない</p>
-      </div>
-      <div class="forwho-item reveal">
-        <div class="forwho-dot"></div>
-        <p class="forwho-text">一人だと考えすぎて止まりやすい</p>
-      </div>
-      <div class="forwho-item reveal">
-        <div class="forwho-dot"></div>
-        <p class="forwho-text">自分らしい働き方、生き方を見つけていきたい</p>
-      </div>
-      <div class="forwho-item reveal">
-        <div class="forwho-dot"></div>
-        <p class="forwho-text">才能を知るだけで終わらず、現実の行動につなげたい</p>
-      </div>
-      <div class="forwho-item reveal">
-        <div class="forwho-dot"></div>
-        <p class="forwho-text">仲間と刺激し合いながら、定期的に自分を整えて前に進みたい</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GOALS -->
-<section class="goals-section">
-  <div class="section-inner">
-    <span class="section-label reveal">Goals</span>
-    <h2 class="section-title reveal">この3ヶ月で目指すこと</h2>
-    <p class="section-lead reveal">「知識としての才能理解」から「使える才能理解」へ。</p>
-
-    <div class="goals-grid">
-      <div class="goal-item reveal">
-        <span class="goal-num">01</span>
-        <p class="goal-text">自分の資質を深く理解し、思考や行動のクセを言語化できる</p>
-      </div>
-      <div class="goal-item reveal">
-        <span class="goal-num">02</span>
-        <p class="goal-text">才能を日常・仕事・人間関係に活かせるようになる</p>
-      </div>
-      <div class="goal-item reveal">
-        <span class="goal-num">03</span>
-        <p class="goal-text">自分に合った進み方が見えてくる</p>
-      </div>
-      <div class="goal-item reveal">
-        <span class="goal-num">04</span>
-        <p class="goal-text">自分を責める時間が減り、自分を活かす視点が増える</p>
-      </div>
-      <div class="goal-item reveal">
-        <span class="goal-num">05</span>
-        <p class="goal-text">一歩先の行動を、自分で決めて動けるようになる</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FLOW -->
-<section class="flow-section">
-  <div class="section-inner">
-    <span class="section-label reveal">Program Flow</span>
-    <h2 class="section-title reveal">プログラムの流れ</h2>
-    <div class="divider reveal"></div>
-
-    <div class="flow-steps reveal">
-      <div class="flow-step">
-        <span class="flow-icon">📖</span>
-        <span class="flow-label">理論を理解する</span>
-        <span class="flow-sub">自分の才能を活かす<br>理論を深く学ぶ</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <span class="flow-icon">🪞</span>
-        <span class="flow-label">自分を見つめる</span>
-        <span class="flow-sub">定期的に内省し<br>自分を整える時間</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <span class="flow-icon">🤝</span>
-        <span class="flow-label">対話する</span>
-        <span class="flow-sub">仲間やコーチとの<br>深い対話と気づき</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <span class="flow-icon">🌸</span>
-        <span class="flow-label">才能を実践する</span>
-        <span class="flow-sub">日常・仕事・人間関係で<br>才能を活かし続ける</span>
-      </div>
-    </div>
-
-    <div class="common-base reveal">
-      <p class="common-title">全コース共通の土台</p>
-      <div class="common-items">
-        <span class="common-tag">週1回 ストレングスファインダー講義</span>
-        <span class="common-tag">週1回 受講生同士の交流</span>
-        <span class="common-tag">オープンチャット</span>
-        <span class="common-tag">パーソナルセッション</span>
-        <span class="common-tag">録画視聴</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COURSES -->
-<section class="courses-section">
-  <div class="section-inner">
-    <span class="section-label reveal">Courses</span>
-    <h2 class="section-title reveal">コース一覧</h2>
-    <p class="section-lead reveal">個別サポートの深さで、3つのコースをご用意しました。</p>
-
-    <div class="courses-grid">
-
-      <!-- 梅 -->
-      <div class="course-card reveal">
-        <div class="course-header">
-          <span class="course-name-en">Light Course</span>
-          <p class="course-name">ライト継続コース</p>
-          <span class="course-session">個別セッション 3ヶ月で1回</span>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card reveal">
+          <div class="hero-kicker">SAINOU KAIKA LABO</div>
+          <h1 class="hero-title">「普通」の自分は、<br><span class="accent">もう終わり。</span></h1>
+          <p class="hero-copy">
+            才能を開花させて、自分史上最高に輝いていく。<br>
+            学んで終わりではなく、日常・仕事・人間関係の中で<br>
+            あなたらしい才能を使えるようになるための、継続3ヶ月プログラムです。
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://example.com/form" target="_blank" rel="noopener noreferrer">お申し込みはこちら</a>
+            <a class="btn btn-secondary" href="#courses">コースを見る</a>
+          </div>
+          <div class="hero-note">まずはフォームよりお申し込み・ご相談いただけます</div>
         </div>
-        <div class="course-body">
-          <p class="course-for-title">こんな方に</p>
-          <ul class="course-for-list">
-            <li>まずは気軽に継続したい</li>
-            <li>仲間同士で切磋琢磨したい</li>
-            <li>個別も1度は受けてみたい</li>
-            <li>価格を抑えて参加したい</li>
-          </ul>
-          <div class="course-price-wrap">
-            <p class="course-price-label">一般価格</p>
-            <p class="course-price">¥49,800<span>（税込）</span></p>
-            <p class="course-price-member">現受講生限定 ¥39,800</p>
+      </div>
+    </section>
+
+    <section class="section section-tight" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">ABOUT</span>
+          <h2 class="section-title">才能開花Laboとは</h2>
+        </div>
+
+        <div class="glass intro-box reveal">
+          <p class="intro-lead">
+            「普通」で終わる自分をやめて、<br>
+            自分の才能を最大限に活かし、<br>
+            輝きはじめるための3か月。
+          </p>
+
+          <div class="chips">
+            <div class="chip">「私には才能がない」</div>
+            <div class="chip">「自分なんてこの程度」</div>
+            <div class="chip">「まだこんなもんじゃない」</div>
+          </div>
+
+          <p class="body-copy">
+            でも本当は、才能は一部の特別な人だけのものではありません。誰の中にも、まだ眠っている才能の種があります。<br><br>
+            もし今、「自分はまだこんなもんじゃない」という感覚があるなら、それは未来のあなたから届いているサインかもしれません。才能は、心から望むゴールを持ち、その未来に向かって歩みはじめたときに、少しずつ花開いていきます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">MESSAGE</span>
+          <h2 class="section-title">このプログラムに込めた想い</h2>
+          <p class="section-sub">
+            自分を知るだけでも人生は変わる。けれど、本当の変化はその先にあります。理解した才能を、現実の中で使い続けることで、少しずつ「本当の自分で生きる感覚」が育っていきます。
+          </p>
+        </div>
+
+        <div class="two-col">
+          <div class="card reveal">
+            <h3>一人では、元のパターンに戻りやすいから</h3>
+            <p class="body-copy">
+              どれだけ強い想いでゴールを設定しても、時間が経つと不安になったり、モチベーションが揺れたり、自分の可能性を見失ってしまうことがあります。
+            </p>
+          </div>
+          <div class="card reveal">
+            <h3>だからこそ、学び・対話・実践の場をつくりたい</h3>
+            <p class="body-copy">
+              定期的に自分を見つめる時間、仲間やコーチとの対話、才能を活かす理論の理解、そして実践。この積み重ねが、才能を人生で使える力へと変えていきます。
+            </p>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- 竹 -->
-      <div class="course-card featured reveal">
-        <div class="course-header">
-          <span class="course-badge">おすすめ</span>
-          <span class="course-name-en">Standard Course</span>
-          <p class="course-name">スタンダード継続コース</p>
-          <span class="course-session">個別セッション 月1回（全3回）</span>
+    <section class="section" style="background: linear-gradient(180deg, rgba(244,248,251,0.72) 0%, rgba(251,252,254,1) 100%);">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">FOR WHO</span>
+          <h2 class="section-title">こんな方へ</h2>
         </div>
-        <div class="course-body">
-          <p class="course-for-title">こんな方に</p>
-          <ul class="course-for-list">
-            <li>学びを現実に落とし込みたい</li>
-            <li>定期的に整理しながら進みたい</li>
-            <li>一人だと止まりやすい</li>
-            <li>一緒に伴走してほしい</li>
-          </ul>
-          <div class="course-price-wrap">
-            <p class="course-price-label">一般価格</p>
-            <p class="course-price">¥88,000<span>（税込）</span></p>
-            <p class="course-price-member">現受講生限定 ¥74,800</p>
+
+        <div class="list-grid">
+          <div class="list-item reveal">自分の強みや才能をもっと深く理解したい</div>
+          <div class="list-item reveal">ストレングスファインダーを受けたけれど、活かし方がわからない</div>
+          <div class="list-item reveal">一人だと考えすぎて止まりやすい</div>
+          <div class="list-item reveal">自分らしい働き方、生き方を見つけていきたい</div>
+          <div class="list-item reveal">才能を知るだけで終わらず、現実の行動につなげたい</div>
+          <div class="list-item reveal">仲間と刺激し合いながら、定期的に自分を整えて前に進みたい</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">GOALS</span>
+          <h2 class="section-title">この3ヶ月で目指すこと</h2>
+          <p class="section-sub">「知識としての才能理解」から「人生の中で使える才能理解」へ。</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="point-card reveal">
+            <div class="point-no">01</div>
+            <p class="point-text">自分の資質を深く理解し、思考や行動のパターンを言葉にできるようになる</p>
+          </div>
+          <div class="point-card reveal">
+            <div class="point-no">02</div>
+            <p class="point-text">これまで無意識に使っていた強みを、才能として受け取れるようになる</p>
+          </div>
+          <div class="point-card reveal">
+            <div class="point-no">03</div>
+            <p class="point-text">日常・仕事・人間関係の中で、自分らしい才能の活かし方が見えてくる</p>
+          </div>
+          <div class="point-card reveal">
+            <div class="point-no">04</div>
+            <p class="point-text">自分を責める視点が減り、自分を活かす視点が育っていく</p>
+          </div>
+          <div class="point-card reveal">
+            <div class="point-no">05</div>
+            <p class="point-text">自分に合った進み方で、次の一歩を自分で決めて動けるようになる</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- 松 -->
-      <div class="course-card reveal">
-        <div class="course-header">
-          <span class="course-name-en">Premium Course</span>
-          <p class="course-name">集中伴走コース</p>
-          <span class="course-session">個別セッション 月2回（全6回）</span>
+    <section class="section" style="background: linear-gradient(180deg, rgba(251,252,254,1) 0%, rgba(244,248,251,0.8) 100%);">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">PROGRAM FLOW</span>
+          <h2 class="section-title">プログラムの流れ</h2>
         </div>
-        <div class="course-body">
-          <p class="course-for-title">こんな方に</p>
-          <ul class="course-for-list">
-            <li>3ヶ月でしっかり変化したい</li>
-            <li>具体的な行動まで落とし込みたい</li>
-            <li>モヤモヤを深く整理しながら進みたい</li>
-            <li>発信・仕事・働き方を加速させたい</li>
-          </ul>
-          <div class="course-price-wrap">
-            <p class="course-price-label">一般価格</p>
-            <p class="course-price">¥128,000<span>（税込）</span></p>
-            <p class="course-price-member">現受講生限定 ¥108,000</p>
+
+        <div class="flow">
+          <div class="flow-item reveal">
+            <div class="flow-step">STEP 01</div>
+            <h3 class="flow-title">理論を理解する</h3>
+            <p class="flow-copy">自分の才能を活かす理論を深く学ぶ</p>
+          </div>
+          <div class="flow-item reveal">
+            <div class="flow-step">STEP 02</div>
+            <h3 class="flow-title">自分を見つめる</h3>
+            <p class="flow-copy">定期的に内省し、自分を整える時間をつくる</p>
+          </div>
+          <div class="flow-item reveal">
+            <div class="flow-step">STEP 03</div>
+            <h3 class="flow-title">対話する</h3>
+            <p class="flow-copy">仲間やコーチとの対話の中で、気づきを深める</p>
+          </div>
+          <div class="flow-item reveal">
+            <div class="flow-step">STEP 04</div>
+            <h3 class="flow-title">実践する</h3>
+            <p class="flow-copy">日常や仕事の中で、才能を使い続ける</p>
+          </div>
+        </div>
+
+        <div class="common-box reveal">
+          <h3>全コース共通の土台</h3>
+          <div class="chips">
+            <div class="chip">週1回 ストレングスファインダー講義</div>
+            <div class="chip">週1回 受講生同士の交流</div>
+            <div class="chip">オープンチャット</div>
+            <div class="chip">録画視聴</div>
+            <div class="chip">パーソナルセッション</div>
           </div>
         </div>
       </div>
+    </section>
 
-    </div>
+    <section class="section" id="courses">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">COURSES</span>
+          <h2 class="section-title">コース一覧</h2>
+          <p class="section-sub">個別サポートの深さに合わせて、3つのコースをご用意しました。</p>
+        </div>
 
-    <div class="price-note reveal">
-      <table class="price-table">
-        <thead>
-          <tr>
-            <th>コース</th>
-            <th>一般価格</th>
-            <th>現受講生限定価格</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>ライト継続コース</td>
-            <td class="price-num">¥49,800</td>
-            <td class="price-member">¥39,800</td>
-          </tr>
-          <tr>
-            <td>スタンダード継続コース</td>
-            <td class="price-num">¥88,000</td>
-            <td class="price-member">¥74,800</td>
-          </tr>
-          <tr>
-            <td>集中伴走コース</td>
-            <td class="price-num">¥128,000</td>
-            <td class="price-member">¥108,000</td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="price-member-note">※ 現在才能開花Laboを受講中の方は、限定価格でご参加いただけます</p>
-    </div>
+        <div class="course-grid">
+          <article class="course reveal">
+            <div class="course-label">LIGHT COURSE</div>
+            <h3 class="course-name">梅コース</h3>
+            <p class="course-session">パーソナルセッション：3ヶ月で1回</p>
+            <ul>
+              <li>まずは気軽に継続したい</li>
+              <li>仲間との交流を中心に進みたい</li>
+              <li>価格を抑えて参加したい</li>
+              <li>個別も1度は受けてみたい</li>
+            </ul>
+            <div class="price-wrap">
+              <div class="price-caption">一般価格</div>
+              <div class="price">49,800円</div>
+              <div class="member-price">現受講生限定価格：39,800円</div>
+            </div>
+          </article>
 
-  </div>
-</section>
+          <article class="course featured reveal">
+            <div class="badge">RECOMMEND</div>
+            <div class="course-label">STANDARD COURSE</div>
+            <h3 class="course-name">竹コース</h3>
+            <p class="course-session">パーソナルセッション：月1回（全3回）</p>
+            <ul>
+              <li>学びを現実に落とし込みたい</li>
+              <li>定期的に整理しながら進みたい</li>
+              <li>一人だと止まりやすい</li>
+              <li>伴走してもらいながら進みたい</li>
+            </ul>
+            <div class="price-wrap">
+              <div class="price-caption">一般価格</div>
+              <div class="price">88,000円</div>
+              <div class="member-price">現受講生限定価格：74,800円</div>
+            </div>
+          </article>
 
-<!-- CTA -->
-<section class="cta-section" id="cta">
-  <div class="section-inner">
-    <span class="section-label reveal">Apply</span>
-    <h2 class="cta-title reveal">
-      あなたの才能の種を、<br>一緒に育てませんか。
-    </h2>
-    <p class="cta-sub reveal">
-      まずはLINEよりお気軽にご相談ください。<br>
-      プログラムの詳細や、あなたに合ったコースについて<br>
-      丁寧にお答えします。
-    </p>
-    <div class="reveal">
-      <a href="https://line.me/R/ti/p/@062zkzea?ts=12221245&oat_content=url" class="btn-line">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.923.258 1.058.594.12.303.079.778.038 1.085l-.164 1.02c-.045.303-.259 1.187 1.051.647 1.31-.54 7.079-4.171 9.655-7.138 1.773-1.923 2.326-3.876 2.326-5.816zm-17.007 3.154h-2.367a.368.368 0 0 1-.365-.37v-4.572a.368.368 0 0 1 .734 0v4.202h1.999a.368.368 0 0 1 0 .74zm1.71 0a.368.368 0 0 1-.734 0v-4.572a.368.368 0 0 1 .734 0v4.572zm5.498 0a.368.368 0 0 1-.245.349.366.366 0 0 1-.122.021.367.367 0 0 1-.299-.152l-2.065-2.807v2.589a.368.368 0 0 1-.734 0v-4.572a.368.368 0 0 1 .245-.349.366.366 0 0 1 .39.131l2.065 2.807v-2.589a.368.368 0 0 1 .734 0v4.572zm3.848-3.831a.368.368 0 0 1 0 .74h-1.999v1.101h1.999a.368.368 0 0 1 0 .74h-2.367a.368.368 0 0 1-.365-.37v-4.572a.368.368 0 0 1 .365-.37h2.367a.368.368 0 0 1 0 .74h-1.999v1.001h1.999z"/></svg>
-        LINEで無料相談する
-      </a>
-      <p class="cta-footnote">お申し込み後、担当よりご連絡いたします</p>
-    </div>
-  </div>
-</section>
+          <article class="course reveal">
+            <div class="course-label">PREMIUM COURSE</div>
+            <h3 class="course-name">松コース</h3>
+            <p class="course-session">パーソナルセッション：月2回（全6回）</p>
+            <ul>
+              <li>3ヶ月でしっかり変化したい</li>
+              <li>具体的な行動まで落とし込みたい</li>
+              <li>モヤモヤを深く整理しながら進みたい</li>
+              <li>発信・仕事・働き方を加速させたい</li>
+            </ul>
+            <div class="price-wrap">
+              <div class="price-caption">一般価格</div>
+              <div class="price">128,000円</div>
+              <div class="member-price">現受講生限定価格：108,000円</div>
+            </div>
+          </article>
+        </div>
 
-<!-- FOOTER -->
-<footer>
-  <p class="footer-logo">才能開花Labo</p>
-  <p class="footer-copy">© 2025 Sainou Kaika Labo. All rights reserved.</p>
-</footer>
+        <div class="table-wrap reveal">
+          <table>
+            <thead>
+              <tr>
+                <th>コース</th>
+                <th>一般価格</th>
+                <th>現受講生限定価格</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>梅コース</strong></td>
+                <td>49,800円</td>
+                <td>39,800円</td>
+              </tr>
+              <tr>
+                <td><strong>竹コース</strong></td>
+                <td>88,000円</td>
+                <td>74,800円</td>
+              </tr>
+              <tr>
+                <td><strong>松コース</strong></td>
+                <td>128,000円</td>
+                <td>108,000円</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-<script>
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, 80);
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    <section class="cta" id="apply">
+      <div class="container">
+        <div class="cta-box reveal">
+          <span class="eyebrow">APPLY</span>
+          <h2 class="cta-title">あなたの才能の種を、<br>一緒に育てませんか。</h2>
+          <p class="cta-copy">
+            才能を知るだけで終わらせず、日常の中で使える力へ。<br>
+            まずはお申し込みフォームより、お気軽にご相談・お申し込みください。
+          </p>
+          <div class="cta-buttons">
+            <a class="btn btn-primary" href="https://example.com/form" target="_blank" rel="noopener noreferrer">お申し込みフォームへ</a>
+            <a class="btn btn-secondary" href="#courses">コース一覧を見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-reveals.forEach(el => observer.observe(el));
-</script>
+  <footer class="footer">
+    <div class="container">© 2025 才能開花Labo All rights reserved.</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
