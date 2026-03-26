@@ -511,6 +511,7 @@ section { padding: 100px 24px; }
   font-weight: 600;
   color: var(--text-dark);
   margin-bottom: 14px;
+  line-height: 1.55;
 }
 .course-session {
   font-size: 13px;
@@ -796,20 +797,6 @@ footer {
 }
 
 @media (max-width: 820px) {
-  .common-items {
-    grid-template-columns: 1fr 1fr;
-  }
-  .common-tag,
-  .common-tag-wide,
-  .common-tag-center {
-    min-width: 0;
-    width: 100%;
-    white-space: normal;
-  }
-  .common-tag-center {
-    grid-column: auto;
-  }
-
   nav { padding: 16px 22px; }
   .about-story,
   .flow-steps { grid-template-columns: 1fr; }
@@ -819,19 +806,30 @@ footer {
   .about-pain,
   .about-conclusion { padding: 36px 24px; }
   .course-card.featured { transform: none; }
+  .common-items {
+    grid-template-columns: 1fr 1fr;
+    justify-content: stretch;
+  }
+  .common-tag,
+  .common-tag-wide,
+  .common-tag-center {
+    min-width: 0;
+    width: 100%;
+    white-space: normal;
+  }
 }
 
 @media (max-width: 680px) {
-  .common-items {
-    grid-template-columns: 1fr;
-  }
-
   .hero { padding-top: 112px; }
   .hero-title { letter-spacing: 0.05em; }
   .hero-bg-circle-1 { width: 420px; height: 420px; right: -120px; }
   .hero-bg-circle-2 { width: 280px; height: 280px; }
   .btn-primary, .btn-line { width: 100%; max-width: 340px; }
   .nav-cta { padding: 0 14px; font-size: 12px; }
+  .common-items {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
 }
 </style>
 </head>
@@ -850,9 +848,8 @@ footer {
     <span class="hero-eyebrow">SAINOU KAIKA LABO</span>
     <h1 class="hero-title">「普通」の自分は<br><span class="accent">もう終わり。</span></h1>
     <p class="hero-tagline">
-      才能を開花させて、自分史上最高に輝いていく。<br>
-      学んで終わりではなく、日常・仕事・人間関係の中で<br>
-      あなたらしい才能を使えるようになるための継続3ヶ月プログラムです。
+      才能を開花させて、自分史上最高に輝こう。<br>
+      ——3か月で、あなたらしい輝きへ。
     </p>
     <div class="hero-cta-wrap">
       <a href="https://example.com/form" class="btn-primary" target="_blank" rel="noopener noreferrer">お申し込みはこちら</a>
@@ -883,15 +880,15 @@ footer {
       <div class="about-pain-voices">
         <span class="voice-bubble">「私には才能がない」</span>
         <span class="voice-bubble">「自分なんてこの程度」</span>
-        <span class="voice-bubble">「まだこんなもんじゃない」</span>
+        <span class="voice-bubble">「あの人と比べて自分は普通だ」</span>
       </div>
       <p class="about-pain-answer">
         でも本当は、才能は一部の特別な人だけのものではありません。<br>
-        <strong>誰の中にも、まだ眠っている才能の種があります。</strong>
+        <strong>誰の中にも、まだ眠っている才能があります。</strong>
       </p>
       <p class="about-pain-answer" style="margin-top:18px;">
-        もし今、「自分はまだこんなもんじゃない」という感覚があるなら、<br>
-        それは未来のあなたから届いているサインかもしれません。
+        もし今「自分はまだこんなもんじゃない」という感覚があるなら、<br>
+        それは未来のあなたから届いているサインです。
       </p>
     </div>
 
@@ -904,10 +901,10 @@ footer {
         </p>
       </div>
       <div class="about-story-card">
-        <p class="about-story-card-title">「学んで終わり」ではなく</p>
+        <p class="about-story-card-title">「学んで終わり」ではなく…</p>
         <p class="about-story-card-body">
-          才能開花Laboでは、自分と向き合い、才能を開花させる方法を学び、実験を繰り返すことで、自分史上最高に輝いていく土台を育てていきます。<br><br>
-          学びを現実の行動につなげながら、あなたらしく進んでいくための3か月です。
+          才能開花Laboでは、自分と向き合い、才能を開花させる方法を学び、実験を繰り返すことで、自分史上最高の輝きを目指していきます。<br><br>
+          「学んで終わり」ではなく、実践を積み重ねながら、あなたらしく輝く人生へ進んでいくための3か月です。
         </p>
       </div>
     </div>
@@ -919,7 +916,7 @@ footer {
       </p>
       <p class="about-conclusion-body">
         学んで終わりではなく、実践を積み重ねながら——<br>
-        あなたらしい人生へ、一歩ずつ進んでいきましょう。
+        あなたらしく輝く人生に向かって、一歩ずつ進んでいきましょう。
       </p>
     </div>
   </div>
@@ -928,19 +925,20 @@ footer {
 <section class="message-section">
   <div class="section-inner">
     <span class="section-label reveal">MESSAGE</span>
-    <h2 class="section-title reveal">このプログラムに<br>込めた想い</h2>
+    <h2 class="section-title reveal">込めた想い</h2>
     <div class="divider reveal"></div>
 
     <div class="message-card reveal">
       <div class="message-quote">”</div>
       <p class="message-text">
-        「自分のことを知る」だけでも人生は変わる。<br>でも、本当の変化はその先にある。
+        「自分のことを知る」だけでも人生は変わる。<br>
+        でも、本当の変化はその先にある。
       </p>
       <p class="message-body">
-        自分のことを知るだけでも人生は変わるけれど、本当に変化が起きるのは、理解した才能を日常の中で使い続けたときです。<br><br>
-        最初は強く願って設定したゴールも、時間が経つと「本当に叶えられるのかな」「私には才能がないのかも」と揺らぐことがあります。一人だと、どうしても元のパターンに戻ってしまう。<br><br>
-        だからこそ、<strong>理論を学ぶこと・定期的に自分を見つめること・仲間やコーチとの対話・実践を重ねること</strong>が必要だと感じました。<br><br>
-        「自分は普通だ」と思っていた人が、自分の中にある才能の種に気づき、それを少しずつ育てながら、“本当の自分”で生きる感覚を取り戻していく。そんな3ヶ月にしたいと思っています。
+        「自分のことを知る」だけでも人生は変わるけれど、本当に変化が起きるのは、心の底から叶えたいゴールを設定し、意識的に日常で変化をし続けることです。<br><br>
+        最初はモチベーション高く設定したゴールも、時間が経つと「本当に叶えられるのかな」「私には才能がないのかも？」「モチベーションが上がらない」——そんな気持ちになってしまうことがあります。<br><br>
+        一人だと、どうしても元の自分のパターンに戻ってしまいます。そのようなパターンを変えていくには、自分の才能を活かす理論の理解・定期的に自分を見つめる時間の確保、仲間やコーチとの対話、才能を活かす実践——この4つが必要だと感じました。<br><br>
+        「自分は普通だ」と思っていた人が、自分の中にある才能の種に気づき、それを少しずつ育てながら、"本当の自分"で生きる感覚を取り戻していく——そんな3ヶ月にしたいと思っています。
       </p>
     </div>
   </div>
@@ -1038,7 +1036,7 @@ footer {
         <div class="course-header">
           <span class="course-badge">おすすめ</span>
           <span class="course-name-en">STANDARD COURSE</span>
-          <p class="course-name">スタンダード継続コース</p>
+          <p class="course-name">スタンダード<br>継続コース</p>
           <span class="course-session">パーソナルセッション 月1回（全3回）</span>
         </div>
         <div class="course-body">
