@@ -430,9 +430,9 @@ section { padding: 100px 24px; }
 }
 .common-items {
   display: grid;
-  grid-template-columns: repeat(4, max-content);
+  grid-template-columns: repeat(2, max-content);
   justify-content: center;
-  gap: 14px 16px;
+  gap: 14px 18px;
 }
 .common-tag {
   background: rgba(238,244,249,0.92);
@@ -443,13 +443,12 @@ section { padding: 100px 24px; }
   border: 1px solid rgba(143,175,196,0.24);
   text-align: center;
   white-space: nowrap;
+  min-width: 0;
 }
 .common-tag-wide {
   min-width: 320px;
 }
 .common-tag-center {
-  grid-column: 2 / 4;
-  justify-self: center;
   min-width: 220px;
 }
 
